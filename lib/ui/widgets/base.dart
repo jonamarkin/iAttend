@@ -3,19 +3,40 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iAttend/business_logic/constants/appconstants.dart';
 //import 'package:rolling_nav_bar/rolling_nav_bar.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:iAttend/ui/views/attendance/attendance.dart';
+import 'package:iAttend/ui/views/dashboard/dashboard.dart';
+import 'package:iAttend/ui/views/events/events.dart';
+import 'package:iAttend/ui/views/profile/profile.dart';
 import 'package:line_icons/line_icons.dart';
 
 class BaseScreen extends StatefulWidget {
-  final Widget body;
-
-  const BaseScreen({Key key, this.body}) : super(key: key);
-
   @override
   _BaseScreenState createState() => _BaseScreenState();
 }
 
 class _BaseScreenState extends State<BaseScreen> {
   int _selectedIndex = 0;
+
+  Widget changeScreen(int index) {
+    switch (index) {
+      case 0:
+        return Dashboard();
+        break;
+      case 1:
+        return AttendancePage();
+        break;
+
+      case 2:
+        return EventsPage();
+
+        break;
+      case 3:
+        return ProfilePage();
+        break;
+      default:
+        return Container();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +45,10 @@ class _BaseScreenState extends State<BaseScreen> {
       appBar: AppBar(
         elevation: 0,
         //leading: MyArc(diameter: 300),
-        //leading: Container(),
+        leading: Container(),
+        toolbarHeight: 10,
       ),
-      body: widget.body,
+      body: changeScreen(_selectedIndex),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(color: backColor, boxShadow: [
           BoxShadow(blurRadius: 20, color: Colors.black.withOpacity(.1))
@@ -63,10 +85,16 @@ class _BaseScreenState extends State<BaseScreen> {
                 ],
                 selectedIndex: _selectedIndex,
                 onTabChange: (index) {
+                  // print(index);
+                  // print(_selectedIndex);
+
                   setState(() {
                     _selectedIndex = index;
 
+                    print(index);
                     print(_selectedIndex);
+
+                    //changeScreen(_selectedIndex);
                   });
                 }),
           ),

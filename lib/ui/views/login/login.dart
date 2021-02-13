@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iAttend/business_logic/constants/appconstants.dart';
 import 'package:iAttend/ui/views/dashboard/dashboard.dart';
+import 'package:iAttend/ui/widgets/base.dart';
 import 'package:iAttend/ui/widgets/login/arc.dart';
 import 'package:beauty_textfield/beauty_textfield.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -183,7 +184,7 @@ class _LoginPageState extends State<LoginPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => Dashboard(),
+                                  builder: (context) => BaseScreen(),
                                 ),
                               );
                             }
