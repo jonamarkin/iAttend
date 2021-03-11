@@ -93,6 +93,11 @@ class _EventsPageState extends State<EventsPage> {
           Expanded(
             child: ListView(
               children: [
+                Padding(
+                  padding: EdgeInsets.all(
+                    5,
+                  ),
+                ),
                 EventsCard(
                   date: "10th January 2021",
                   location: "Last Stop",

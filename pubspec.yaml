@@ -38,10 +38,18 @@ dependencies:
   charts_flutter: ^0.9.0
   modal_bottom_sheet: ^1.0.0+1
   expansion_card: ^0.1.0
+  flutter_launcher_icons: ^0.9.0
+
+flutter_icons:
+  image_path: "assets/images/default.png"
+  android: true
+  ios: true
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -59,6 +67,9 @@ flutter:
     - assets/images/default.png
     - assets/images/profile.png
     - assets/images/events/1.png
+    - assets/images/ato.jpg
+    - assets/images/ato1.png
+    - assets/images/ato2.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

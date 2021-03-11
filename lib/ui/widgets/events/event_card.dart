@@ -19,18 +19,19 @@ class _EventsCardState extends State<EventsCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            height: MediaQuery.of(context).size.height * 0.5,
+            height: MediaQuery.of(context).size.height * 0.4,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
                   'assets/images/events/1.png',
                   fit: BoxFit.cover,
-                  height: MediaQuery.of(context).size.height * 0.35,
+                  height: MediaQuery.of(context).size.height * 0.25,
                 ),
                 Divider(),
                 Row(

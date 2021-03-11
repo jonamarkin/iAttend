@@ -257,7 +257,7 @@ class _DashboardState extends State<Dashboard> {
                                       fontSize: 18,
                                       color: Colors.blueGrey,
                                       //fontWeight: FontWeight.bold,
-                                      fontStyle: FontStyle.italic,
+                                      //fontStyle: FontStyle.italic,
                                     ),
                                   ),
                                 ],
