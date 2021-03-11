@@ -16,7 +16,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   void activatebio() {}
   Future<void>? _launched;
-  String _phone = '';
+  String _phone = '+233 547 362 101';
 
   Widget _launchStatus(BuildContext context, AsyncSnapshot<void> snapshot) {
     if (snapshot.hasError) {
@@ -27,6 +27,14 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Future<void> _makePhoneCall(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  Future<void> _sendEmail(String url) async {
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -129,14 +137,21 @@ class _ProfilePageState extends State<ProfilePage> {
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.05,
                       ),
-                      Text(
-                        "+233 547 362 101",
-                        style: GoogleFonts.lato(
-                          textStyle: Theme.of(context).textTheme.headline2,
-                          fontSize: 15,
-                          color: Colors.blueGrey,
-                          fontWeight: FontWeight.bold,
-                          //fontStyle: FontStyle.italic,
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _launched = _makePhoneCall('tel:$_phone');
+                          });
+                        },
+                        child: Text(
+                          "+233 547 362 101",
+                          style: GoogleFonts.lato(
+                            textStyle: Theme.of(context).textTheme.headline2,
+                            fontSize: 15,
+                            color: Colors.blueGrey,
+                            fontWeight: FontWeight.bold,
+                            //fontStyle: FontStyle.italic,
+                          ),
                         ),
                       ),
                     ],
@@ -155,14 +170,26 @@ class _ProfilePageState extends State<ProfilePage> {
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.05,
                       ),
-                      Text(
-                        "jona10711@gmail.com",
-                        style: GoogleFonts.lato(
-                          textStyle: Theme.of(context).textTheme.headline2,
-                          fontSize: 15,
-                          color: Colors.blueGrey,
-                          fontWeight: FontWeight.bold,
-                          //fontStyle: FontStyle.italic,
+                      GestureDetector(
+                        onTap: () {
+                          final Uri params = Uri(
+                            scheme: 'mailto',
+                            path: 'jona10711@gmail.com',
+                          );
+                          String url = params.toString();
+                          setState(() {
+                            _launched = _sendEmail(url);
+                          });
+                        },
+                        child: Text(
+                          "jona10711@gmail.com",
+                          style: GoogleFonts.lato(
+                            textStyle: Theme.of(context).textTheme.headline2,
+                            fontSize: 15,
+                            color: Colors.blueGrey,
+                            fontWeight: FontWeight.bold,
+                            //fontStyle: FontStyle.italic,
+                          ),
                         ),
                       ),
                     ],
@@ -382,6 +409,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               ),
+              FutureBuilder<void>(future: _launched, builder: _launchStatus),
             ],
           ),
         ],
