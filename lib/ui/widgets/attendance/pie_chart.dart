@@ -9,7 +9,7 @@ class PieChartSample1 extends StatefulWidget {
 }
 
 class PieChartSample1State extends State {
-  int touchedIndex;
+  late int touchedIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -147,7 +147,7 @@ class PieChartSample1State extends State {
               titlePositionPercentageOffset: 0.55,
             );
           default:
-            return null;
+            return PieChartSectionData();
         }
       },
     );

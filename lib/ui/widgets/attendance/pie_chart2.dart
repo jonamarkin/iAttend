@@ -10,7 +10,14 @@ class PieChartSample2 extends StatefulWidget {
 }
 
 class PieChart2State extends State {
-  int touchedIndex;
+  late int touchedIndex;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    touchedIndex = -1;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -135,7 +142,7 @@ class PieChart2State extends State {
           );
 
         default:
-          return null;
+          return PieChartSectionData();
       }
     });
   }

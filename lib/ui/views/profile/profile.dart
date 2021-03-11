@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iAttend/business_logic/constants/appconstants.dart';
 import 'package:iAttend/ui/widgets/base.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -14,6 +15,24 @@ class _ProfilePageState extends State<ProfilePage> {
   bool isSwitched = false;
 
   void activatebio() {}
+  Future<void>? _launched;
+  String _phone = '';
+
+  Widget _launchStatus(BuildContext context, AsyncSnapshot<void> snapshot) {
+    if (snapshot.hasError) {
+      return Text('Error: ${snapshot.error}');
+    } else {
+      return const Text('');
+    }
+  }
+
+  Future<void> _makePhoneCall(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

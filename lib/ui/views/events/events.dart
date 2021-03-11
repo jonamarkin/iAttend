@@ -14,7 +14,7 @@ class EventsPage extends StatefulWidget {
 enum EventType { rehearsal, wedding, funeral, birthday, concert }
 
 class _EventsPageState extends State<EventsPage> {
-  EventType _selection;
+  late EventType _selection;
   @override
   Widget build(BuildContext context) {
     return Container(

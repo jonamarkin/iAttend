@@ -227,7 +227,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                           elevation: 3.0,
                           onPressed: () {
-                            if (_formKey.currentState.validate()) {
+                            if (_formKey.currentState!.validate()) {
                               // _signIn(
                               //     _usernameController
                               //         .text,

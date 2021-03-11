@@ -4,7 +4,7 @@ import 'package:iAttend/business_logic/constants/appconstants.dart';
 class InnerPages extends StatefulWidget {
   final Widget body;
 
-  const InnerPages({Key key, this.body}) : super(key: key);
+  const InnerPages({Key? key, required this.body}) : super(key: key);
   @override
   _InnerPagesState createState() => _InnerPagesState();
 }

@@ -6,7 +6,7 @@ import 'package:iAttend/business_logic/constants/appconstants.dart';
 class MyArc extends StatelessWidget {
   final double diameter;
 
-  const MyArc({Key key, this.diameter = 200}) : super(key: key);
+  const MyArc({Key? key, this.diameter = 200}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

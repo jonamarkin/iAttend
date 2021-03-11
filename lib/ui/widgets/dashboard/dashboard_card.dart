@@ -12,7 +12,11 @@ class DashboardCard extends StatefulWidget {
   final IconData cardIcon;
 
   const DashboardCard(
-      {Key key, this.cardColor, this.cardName, this.onTap, this.cardIcon})
+      {Key? key,
+      required this.cardColor,
+      required this.cardName,
+      required this.onTap,
+      required this.cardIcon})
       : super(key: key);
   @override
   _DashboardCardState createState() => _DashboardCardState();
@@ -22,7 +26,7 @@ class _DashboardCardState extends State<DashboardCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.onTap,
+      onTap: () => widget.onTap,
       child: Card(
         elevation: 5,
         //color: Color(0xffF5CE83),

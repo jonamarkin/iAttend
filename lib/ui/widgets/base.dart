@@ -57,46 +57,49 @@ class _BaseScreenState extends State<BaseScreen> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
             child: GNav(
-                rippleColor: Colors.grey[300],
-                hoverColor: Colors.grey[100],
-                gap: 8,
-                activeColor: fontColor,
-                iconSize: 24,
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                duration: Duration(milliseconds: 400),
-                tabBackgroundColor: Color(0xff8acac0),
-                tabs: [
-                  GButton(
-                    icon: LineIcons.home,
-                    text: 'Home',
-                  ),
-                  GButton(
-                    icon: LineIcons.checkSquareAlt,
-                    text: 'Attendance',
-                  ),
-                  GButton(
-                    icon: LineIcons.calendarAlt,
-                    text: 'Events',
-                  ),
-                  GButton(
-                    icon: LineIcons.user,
-                    text: 'Profile',
-                  ),
-                ],
-                selectedIndex: _selectedIndex,
-                onTabChange: (index) {
-                  // print(index);
-                  // print(_selectedIndex);
+              rippleColor: Colors.grey[300],
+              hoverColor: Colors.grey[100],
+              gap: 8,
+              activeColor: fontColor,
+              iconSize: 24,
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              duration: Duration(milliseconds: 400),
+              tabBackgroundColor: Color(0xff8acac0),
+              tabs: [
+                GButton(
+                  icon: LineIcons.home,
+                  text: 'Home',
+                ),
+                GButton(
+                  icon: LineIcons.checkSquareAlt,
+                  text: 'Attendance',
+                ),
+                GButton(
+                  icon: LineIcons.calendarAlt,
+                  text: 'Events',
+                ),
+                GButton(
+                  icon: LineIcons.user,
+                  text: 'Profile',
+                ),
+              ],
+              selectedIndex: _selectedIndex,
+              onTabChange: (index) {
+                // print(index);
+                // print(_selectedIndex);
 
-                  setState(() {
+                setState(
+                  () {
                     _selectedIndex = index;
 
                     print(index);
                     print(_selectedIndex);
 
                     //changeScreen(_selectedIndex);
-                  });
-                }),
+                  },
+                );
+              },
+            ),
           ),
         ),
       ),

@@ -20,7 +20,7 @@ class _AttendancePageState extends State<AttendancePage> {
   final Color barBackgroundColor = const Color(0xff72d8bf);
   final double width = 22;
 
-  AttendanceStatus _selection;
+  late AttendanceStatus _selection;
 
   @override
   Widget build(BuildContext context) {

@@ -9,7 +9,12 @@ class EventsCard extends StatefulWidget {
   final String name;
   final String date;
 
-  const EventsCard({Key key, this.time, this.location, this.name, this.date})
+  const EventsCard(
+      {Key? key,
+      required this.time,
+      required this.location,
+      required this.name,
+      required this.date})
       : super(key: key);
   @override
   _EventsCardState createState() => _EventsCardState();
@@ -19,7 +24,6 @@ class _EventsCardState extends State<EventsCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

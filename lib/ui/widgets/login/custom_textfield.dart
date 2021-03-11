@@ -8,12 +8,12 @@ class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
 
   const CustomTextField(
-      {Key key,
-      this.labelText,
-      this.color,
-      this.labelColor,
-      this.controller,
-      this.cursorColor})
+      {Key? key,
+      required this.labelText,
+      required this.color,
+      required this.labelColor,
+      required this.controller,
+      required this.cursorColor})
       : super(key: key);
   @override
   _CustomTextFieldState createState() => _CustomTextFieldState();

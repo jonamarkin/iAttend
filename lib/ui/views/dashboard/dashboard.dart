@@ -111,10 +111,12 @@ class _DashboardState extends State<Dashboard> {
                     onTap: () {},
                   ),
                   DashboardCard(
-                    cardName: "Events",
+                    cardName: "Notices",
                     cardColor: Color(0xffF5CE83),
-                    cardIcon: LineIcons.calendar,
-                    onTap: () {},
+                    cardIcon: LineIcons.bookReader,
+                    onTap: () {
+                      //Navigator.push(context, MaterialPageRoute(builder: (context) => EventsPage()))
+                    },
                   ),
                 ],
               ),

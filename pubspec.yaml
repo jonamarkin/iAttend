@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -39,6 +39,7 @@ dependencies:
   modal_bottom_sheet: ^1.0.0+1
   expansion_card: ^0.1.0
   flutter_launcher_icons: ^0.9.0
+  url_launcher: ^6.0.2
 
 flutter_icons:
   image_path: "assets/images/default.png"

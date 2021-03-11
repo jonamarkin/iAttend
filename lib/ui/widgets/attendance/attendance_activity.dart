@@ -9,11 +9,11 @@ class AttendanceActivity extends StatefulWidget {
   final String eventDate;
 
   const AttendanceActivity(
-      {Key key,
-      this.eventName,
-      this.eventLocation,
-      this.eventDate,
-      this.attendanceStatus})
+      {Key? key,
+      required this.eventName,
+      required this.eventLocation,
+      required this.eventDate,
+      required this.attendanceStatus})
       : super(key: key);
   @override
   _AttendanceActivityState createState() => _AttendanceActivityState();
