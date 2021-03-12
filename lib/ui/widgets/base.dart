@@ -10,6 +10,7 @@ import 'package:iAttend/ui/views/profile/profile.dart';
 import 'package:line_icons/line_icons.dart';
 
 class BaseScreen extends StatefulWidget {
+  //final Widget body;
   @override
   _BaseScreenState createState() => _BaseScreenState();
 }

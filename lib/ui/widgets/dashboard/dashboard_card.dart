@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iAttend/business_logic/constants/appconstants.dart';
+import 'package:iAttend/ui/views/teams/teams.dart';
+import 'package:iAttend/ui/widgets/inner_base.dart';
 import 'package:line_icons/line_icons.dart';
 
 class DashboardCard extends StatefulWidget {
@@ -8,15 +10,17 @@ class DashboardCard extends StatefulWidget {
 
   final String cardName;
 
-  final Function onTap;
+  final Widget onTap;
   final IconData cardIcon;
+  final String pageTitle;
 
   const DashboardCard(
       {Key? key,
       required this.cardColor,
       required this.cardName,
       required this.onTap,
-      required this.cardIcon})
+      required this.cardIcon,
+      required this.pageTitle})
       : super(key: key);
   @override
   _DashboardCardState createState() => _DashboardCardState();
@@ -26,7 +30,12 @@ class _DashboardCardState extends State<DashboardCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => widget.onTap,
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => widget.onTap,
+        ),
+      ),
       child: Card(
         elevation: 5,
         //color: Color(0xffF5CE83),

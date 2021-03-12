@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iAttend/business_logic/constants/appconstants.dart';
+import 'package:iAttend/ui/views/members/members.dart';
+import 'package:iAttend/ui/views/teams/teams.dart';
 import 'package:iAttend/ui/widgets/base.dart';
 import 'package:iAttend/ui/widgets/dashboard/dashboard_card.dart';
 import 'package:line_icons/line_icons.dart';
@@ -90,13 +92,15 @@ class _DashboardState extends State<Dashboard> {
                       cardName: "Teams",
                       cardColor: Color(0xffF5CE83),
                       cardIcon: LineIcons.peopleCarry,
-                      onTap: () {},
+                      onTap: Teams(),
+                      pageTitle: "Teams",
                     ),
                     DashboardCard(
                       cardName: "Members",
                       cardColor: Color(0xff8acac0),
                       cardIcon: LineIcons.users,
-                      onTap: () {},
+                      onTap: Members(),
+                      pageTitle: "Members",
                     ),
                   ],
                 ),
@@ -108,15 +112,15 @@ class _DashboardState extends State<Dashboard> {
                     cardName: "Requests",
                     cardColor: Color(0xff8acac0),
                     cardIcon: LineIcons.book,
-                    onTap: () {},
+                    onTap: Teams(),
+                    pageTitle: "Requests",
                   ),
                   DashboardCard(
                     cardName: "Notices",
                     cardColor: Color(0xffF5CE83),
                     cardIcon: LineIcons.bookReader,
-                    onTap: () {
-                      //Navigator.push(context, MaterialPageRoute(builder: (context) => EventsPage()))
-                    },
+                    onTap: Teams(),
+                    pageTitle: "Notices",
                   ),
                 ],
               ),
