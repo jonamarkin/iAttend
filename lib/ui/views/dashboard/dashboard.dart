@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iAttend/business_logic/constants/appconstants.dart';
 import 'package:iAttend/ui/views/members/members.dart';
+import 'package:iAttend/ui/views/notices/notices.dart';
+import 'package:iAttend/ui/views/requests/requests.dart';
 import 'package:iAttend/ui/views/teams/teams.dart';
 import 'package:iAttend/ui/widgets/base.dart';
 import 'package:iAttend/ui/widgets/dashboard/dashboard_card.dart';
@@ -112,14 +114,14 @@ class _DashboardState extends State<Dashboard> {
                     cardName: "Requests",
                     cardColor: Color(0xff8acac0),
                     cardIcon: LineIcons.book,
-                    onTap: Teams(),
+                    onTap: Requests(),
                     pageTitle: "Requests",
                   ),
                   DashboardCard(
                     cardName: "Notices",
                     cardColor: Color(0xffF5CE83),
                     cardIcon: LineIcons.bookReader,
-                    onTap: Teams(),
+                    onTap: Notices(),
                     pageTitle: "Notices",
                   ),
                 ],
@@ -133,7 +135,7 @@ class _DashboardState extends State<Dashboard> {
                 child: Padding(
                   padding: const EdgeInsets.all(5.0),
                   child: Text(
-                    "New Event",
+                    "Upcoming Event",
                     style: GoogleFonts.lato(
                       textStyle: Theme.of(context).textTheme.headline3,
                       fontSize: 15,
@@ -148,13 +150,13 @@ class _DashboardState extends State<Dashboard> {
                 child: Card(
                   // color: Color(0xffd3d3d3),
                   child: Container(
-                    height: MediaQuery.of(context).size.height * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.15,
                     width: MediaQuery.of(context).size.width,
                     padding: EdgeInsets.all(
                       9,
                     ),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(5.0),
@@ -162,49 +164,49 @@ class _DashboardState extends State<Dashboard> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Row(
-                                children: [
-                                  CircleAvatar(
-                                    radius: 40,
-                                    //maxRadius: 40,
-                                    child: Icon(
-                                      LineIcons.userClock,
-                                      size: 45,
-                                      //color: fontColor,
-                                      color: Color(0xff8acac0),
-                                    ),
-                                  ),
-                                ],
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.03,
                               ),
-                              FlatButton(
-                                splashColor: Color(0xffF5CE83),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  side: BorderSide(
-                                    color: Color(0xff8acac0),
-                                  ),
+                              // VerticalDivider(
+                              //   color: greenColor,
+                              //   thickness: 10,
+                              // ),
+
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.red,
                                 ),
-                                // color: ,
-                                onPressed: () {},
-                                child: Text(
-                                  "Clock In",
-                                  style: GoogleFonts.lato(
-                                    textStyle:
-                                        Theme.of(context).textTheme.headline3,
-                                    fontSize: 15,
-                                    color: Colors.blueGrey,
-                                    fontWeight: FontWeight.bold,
-                                    //fontStyle: FontStyle.italic,
-                                  ),
-                                ),
+                                width: 10,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.1,
+                                //color: greenColor,
+                                margin: const EdgeInsets.only(right: 4),
                               ),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.02,
+                              ),
+                              // Row(
+                              //   children: [
+                              //     CircleAvatar(
+                              //       radius: 40,
+                              //       //maxRadius: 40,
+                              //       child: Icon(
+                              //         LineIcons.userClock,
+                              //         size: 45,
+                              //         //color: fontColor,
+                              //         color: Color(0xff8acac0),
+                              //       ),
+                              //     ),
+                              //   ],
+                              // ),
                             ],
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 15,
-                            vertical: 25,
+                            horizontal: 10,
+                            vertical: 5,
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -268,6 +270,28 @@ class _DashboardState extends State<Dashboard> {
                                   ),
                                 ],
                               ),
+                              // FlatButton(
+                              //   splashColor: Color(0xffF5CE83),
+                              //   shape: RoundedRectangleBorder(
+                              //     borderRadius: new BorderRadius.circular(5.0),
+                              //     side: BorderSide(
+                              //       color: Color(0xff8acac0),
+                              //     ),
+                              //   ),
+                              //   // color: ,
+                              //   onPressed: () {},
+                              //   child: Text(
+                              //     "Clock In",
+                              //     style: GoogleFonts.lato(
+                              //       textStyle:
+                              //           Theme.of(context).textTheme.headline3,
+                              //       fontSize: 15,
+                              //       color: Colors.blueGrey,
+                              //       fontWeight: FontWeight.bold,
+                              //       //fontStyle: FontStyle.italic,
+                              //     ),
+                              //   ),
+                              // ),
                             ],
                           ),
                         ),
