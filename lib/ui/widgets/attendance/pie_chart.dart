@@ -64,14 +64,17 @@ class PieChartSample1State extends State {
                 aspectRatio: 1,
                 child: PieChart(
                   PieChartData(
-                      pieTouchData:
-                          PieTouchData(touchCallback: (pieTouchResponse) {
+                      pieTouchData: PieTouchData(
+                          touchCallback: (event, pieTouchResponse) {
                         setState(() {
-                          if (pieTouchResponse.touchInput is FlLongPressEnd ||
-                              pieTouchResponse.touchInput is FlPanEnd) {
+                          if (pieTouchResponse?.touchedSection
+                                  is FlLongPressEnd ||
+                              pieTouchResponse?.touchedSection
+                                  is FlPanEndEvent) {
                             touchedIndex = -1;
                           } else {
-                            touchedIndex = pieTouchResponse.touchedSectionIndex;
+                            touchedIndex = pieTouchResponse!
+                                .touchedSection!.touchedSectionIndex;
                           }
                         });
                       }),

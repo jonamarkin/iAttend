@@ -58,8 +58,8 @@ class _BaseScreenState extends State<BaseScreen> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
             child: GNav(
-              rippleColor: Colors.grey[300],
-              hoverColor: Colors.grey[100],
+              rippleColor: (Colors.grey[300])!,
+              hoverColor: (Colors.grey[100])!,
               gap: 8,
               activeColor: fontColor,
               iconSize: 24,
