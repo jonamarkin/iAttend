@@ -41,7 +41,7 @@ class _DashboardCardState extends State<DashboardCard> {
         //color: Color(0xffF5CE83),
         color: widget.cardColor,
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.15,
+          height: MediaQuery.of(context).size.height * 0.18,
           width: MediaQuery.of(context).size.width * 0.45,
           padding: EdgeInsets.all(
             10,

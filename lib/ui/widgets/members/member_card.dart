@@ -19,7 +19,7 @@ class _MemberCardState extends State<MemberCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.09,
+      height: MediaQuery.of(context).size.height * 0.10,
       child: Card(
         color: Color(0xfff4f4f4),
         child: Padding(

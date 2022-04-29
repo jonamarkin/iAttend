@@ -35,18 +35,21 @@ class _TeamsState extends State<Teams> {
           ),
           onPressed: () {},
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.07,
+            // height: MediaQuery.of(context).size.height * 0.07,
+            height: 15.0,
             width: MediaQuery.of(context).size.width * 0.30,
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
                   FontAwesomeIcons.plusCircle,
                   color: Colors.blueGrey,
+                  size: 17,
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.02,
+                  // width: MediaQuery.of(context).size.width * 0.05,
+                  width: 2,
                 ),
                 Text(
                   "Create Team",

@@ -37,7 +37,7 @@ class _MembersState extends State<Members> {
           ),
           onPressed: () {},
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.07,
+            height: 15,
             width: MediaQuery.of(context).size.width * 0.30,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -46,10 +46,10 @@ class _MembersState extends State<Members> {
                 Icon(
                   FontAwesomeIcons.userPlus,
                   color: Colors.blueGrey,
-                  size: 20,
+                  size: 18,
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.03,
+                  width: 2,
                 ),
                 Text(
                   "Add Member",

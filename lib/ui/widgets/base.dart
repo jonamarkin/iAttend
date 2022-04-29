@@ -60,10 +60,10 @@ class _BaseScreenState extends State<BaseScreen> {
             child: GNav(
               rippleColor: (Colors.grey[300])!,
               hoverColor: (Colors.grey[100])!,
-              gap: 8,
+              gap: 6,
               activeColor: fontColor,
               iconSize: 24,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              padding: EdgeInsets.symmetric(horizontal: 18, vertical: 12),
               duration: Duration(milliseconds: 400),
               tabBackgroundColor: Color(0xff8acac0),
               tabs: [
@@ -74,6 +74,7 @@ class _BaseScreenState extends State<BaseScreen> {
                 GButton(
                   icon: LineIcons.checkSquareAlt,
                   text: 'Attendance',
+                  
                 ),
                 GButton(
                   icon: LineIcons.calendarAlt,

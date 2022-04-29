@@ -28,7 +28,7 @@ class _EventsCardState extends State<EventsCard> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            height: MediaQuery.of(context).size.height * 0.4,
+            height: MediaQuery.of(context).size.height * 0.43,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [

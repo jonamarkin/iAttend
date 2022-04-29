@@ -32,7 +32,7 @@ class _AttendanceActivityState extends State<AttendanceActivity> {
             vertical: 10,
           ),
           width: double.infinity,
-          height: MediaQuery.of(context).size.height * 0.08,
+          height: MediaQuery.of(context).size.height * 0.094,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -94,31 +94,37 @@ class _AttendanceActivityState extends State<AttendanceActivity> {
                           //fontStyle: FontStyle.italic,
                         ),
                       ),
+                     
+                      
                     ],
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.15,
+                    // width: MediaQuery.of(context).size.width * 0.955,
+                    width: 20,
                   ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 0,
-                    ),
-                    child: Text(
-                      widget.eventDate,
-                      style: GoogleFonts.lato(
-                        textStyle: Theme.of(context).textTheme.headline3,
-                        fontSize: 15,
-                        color: Colors.grey[400],
-                        //fontWeight: FontWeight.bold,
-                        //fontStyle: FontStyle.italic,
+                  // Spacer(),
+                      Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 0,
+                        ),
+                        child: Text(
+                          widget.eventDate,
+                          style: GoogleFonts.lato(
+                            textStyle: Theme.of(context).textTheme.headline3,
+                            fontSize: 15,
+                            color: Colors.grey[400],
+                            //fontWeight: FontWeight.bold,
+                            //fontStyle: FontStyle.italic,
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
+                  
                 ],
               ),
             ],

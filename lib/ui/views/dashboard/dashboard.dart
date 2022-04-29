@@ -150,7 +150,7 @@ class _DashboardState extends State<Dashboard> {
                 child: Card(
                   // color: Color(0xffd3d3d3),
                   child: Container(
-                    height: MediaQuery.of(context).size.height * 0.15,
+                    height: MediaQuery.of(context).size.height * 0.177,
                     width: MediaQuery.of(context).size.width,
                     padding: EdgeInsets.all(
                       9,
@@ -179,7 +179,7 @@ class _DashboardState extends State<Dashboard> {
                                 ),
                                 width: 10,
                                 height:
-                                    MediaQuery.of(context).size.height * 0.1,
+                                    MediaQuery.of(context).size.height * 0.12,
                                 //color: greenColor,
                                 margin: const EdgeInsets.only(right: 4),
                               ),

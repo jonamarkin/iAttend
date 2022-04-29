@@ -62,9 +62,10 @@ class _AttendancePageState extends State<AttendancePage> {
           ),
           //PieChartSample1(),
           //PieChartSample3(),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+
           PieChartSample2(),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.03),
           Padding(
             padding: const EdgeInsets.all(5.0),
             child: Row(
