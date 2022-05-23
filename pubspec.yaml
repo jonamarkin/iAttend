@@ -39,6 +39,11 @@ dependencies:
   expansion_card:
   flutter_launcher_icons:
   url_launcher:
+  firebase_core: ^1.17.0
+  firebase_auth: ^3.3.18
+  cloud_firestore: ^3.1.16
+  firebase_storage: ^10.2.16
+  firebase_analytics: ^9.1.8
 
 flutter_icons:
   image_path: "assets/images/default.png"
