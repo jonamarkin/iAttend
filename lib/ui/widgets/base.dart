@@ -1,11 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iAttend/business_logic/constants/appconstants.dart';
 //import 'package:rolling_nav_bar/rolling_nav_bar.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:iAttend/models/Usermodel.dart';
 import 'package:iAttend/ui/views/attendance/attendance.dart';
 import 'package:iAttend/ui/views/dashboard/dashboard.dart';
 import 'package:iAttend/ui/views/events/events.dart';
+import 'package:iAttend/ui/views/login/login.dart';
 import 'package:iAttend/ui/views/profile/profile.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -16,6 +20,8 @@ class BaseScreen extends StatefulWidget {
 }
 
 class _BaseScreenState extends State<BaseScreen> {
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
   int _selectedIndex = 0;
 
   Widget changeScreen(int index) {
@@ -37,6 +43,19 @@ class _BaseScreenState extends State<BaseScreen> {
       default:
         return Container();
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      this.loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
   }
 
   @override
@@ -74,7 +93,6 @@ class _BaseScreenState extends State<BaseScreen> {
                 GButton(
                   icon: LineIcons.checkSquareAlt,
                   text: 'Attendance',
-                  
                 ),
                 GButton(
                   icon: LineIcons.calendarAlt,
@@ -106,5 +124,11 @@ class _BaseScreenState extends State<BaseScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> logout(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.of(context)
+        .pushReplacement(MaterialPageRoute(builder: (context) => LoginPage()));
   }
 }

@@ -1,8 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iAttend/business_logic/constants/appconstants.dart';
+import 'package:iAttend/models/Usermodel.dart';
 import 'package:iAttend/ui/views/login/login.dart';
+import 'package:iAttend/ui/widgets/base.dart';
 import 'package:iAttend/ui/widgets/login/arc.dart';
 import 'package:iAttend/ui/widgets/login/custom_textfield.dart';
 import 'package:keyboard_avoider/keyboard_avoider.dart';
@@ -14,6 +19,7 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
+  final _auth = FirebaseAuth.instance;
   TextEditingController _emailController = new TextEditingController();
   TextEditingController _passwordController = new TextEditingController();
   TextEditingController _repeatPasswordController = new TextEditingController();
@@ -106,6 +112,20 @@ class _SignUpPageState extends State<SignUpPage> {
                         cursorColor: fontColor,
                         labelColor: Colors.blueGrey,
                         labelText: "Email",
+                        onSaved: (value) {
+                          _emailController.text = value!;
+                        },
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return ("Please Enter Your Email");
+                          }
+                          // reg for email validation
+                          if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[a-z]")
+                              .hasMatch(value)) {
+                            return ("Please Enter a valid email");
+                          }
+                          return null;
+                        },
                       ),
 
                       Container(
@@ -118,6 +138,19 @@ class _SignUpPageState extends State<SignUpPage> {
                           cursorColor: fontColor,
                           labelColor: Colors.blueGrey,
                           labelText: "Firstname",
+                          validator: (value) {
+                            RegExp regex = new RegExp(r'^.{3,}$');
+                            if (value!.isEmpty) {
+                              return ("Firstname cannot be Empty");
+                            }
+                            if (!regex.hasMatch(value)) {
+                              return ("Enter Valid Name(Min. 3 Character");
+                            }
+                            return null;
+                          },
+                          onSaved: (value) {
+                            _firstnameController.text = value!;
+                          },
                         ),
                       ),
 
@@ -131,6 +164,15 @@ class _SignUpPageState extends State<SignUpPage> {
                           cursorColor: fontColor,
                           labelColor: Colors.blueGrey,
                           labelText: "Lastname",
+                          onSaved: (value) {
+                            _lastnameController.text = value!;
+                          },
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return ("Last Name cannot be Empty");
+                            }
+                            return null;
+                          },
                         ),
                       ),
 
@@ -144,6 +186,15 @@ class _SignUpPageState extends State<SignUpPage> {
                           cursorColor: fontColor,
                           labelColor: Colors.blueGrey,
                           labelText: "Group ID",
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return ("Group ID cannot be Empty");
+                            }
+                            return null;
+                          },
+                          onSaved: (value) {
+                            _groupIDController.text = value!;
+                          },
                         ),
                       ),
 
@@ -157,6 +208,19 @@ class _SignUpPageState extends State<SignUpPage> {
                           cursorColor: fontColor,
                           labelColor: Colors.blueGrey,
                           labelText: "Password",
+                          onSaved: (value) {
+                            _passwordController.text = value!;
+                          },
+                          validator: (value) {
+                            RegExp regex = new RegExp(r'^.{6,}$');
+                            if (value!.isEmpty) {
+                              return ("Password required");
+                            }
+                            if (!regex.hasMatch(value)) {
+                              return ("Enter Valid Password(Min. 6 Character");
+                            }
+                            return null;
+                          },
                         ),
                       ),
 
@@ -170,6 +234,16 @@ class _SignUpPageState extends State<SignUpPage> {
                           cursorColor: fontColor,
                           labelColor: Colors.blueGrey,
                           labelText: "Repeat Password",
+                          onSaved: (value) {
+                            _repeatPasswordController.text = value!;
+                          },
+                          validator: (value) {
+                            if (_repeatPasswordController.text !=
+                                _passwordController.text ) {
+                              return "Password don't match";
+                            }
+                            return null;
+                          },
                         ),
                       ),
 
@@ -227,13 +301,8 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                           elevation: 3.0,
                           onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              // _signIn(
-                              //     _usernameController
-                              //         .text,
-                              //     _passwordController
-                              //         .text);
-                            }
+                            signUp(_emailController.text,
+                                _passwordController.text);
                           },
                         ),
                       )
@@ -246,5 +315,44 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
       ),
     );
+  }
+
+  void signUp(String email, String password) async {
+    if (_formKey.currentState!.validate()) {
+      await _auth
+          .createUserWithEmailAndPassword(email: email, password: password)
+          .then((value) => {postDetailsToFirestore()})
+          .catchError((e) {
+        Fluttertoast.showToast(msg: e!.message);
+      });
+    }
+  }
+
+  postDetailsToFirestore() async {
+    // calling firestore
+    // calling user model
+    //  sending values
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    User? user = _auth.currentUser;
+
+    UserModel userModel = UserModel();
+
+    //  writing all values
+    userModel.email = user!.email;
+    userModel.uid = user!.uid;
+    userModel.firstName = _firstnameController.text;
+    userModel.lastName = _lastnameController.text;
+    userModel.groupId = _groupIDController.text;
+
+    await firebaseFirestore
+        .collection("users")
+        .doc(user.uid)
+        .set(userModel.toMap());
+    Fluttertoast.showToast(msg: "Account created successfully: )");
+
+    Navigator.pushAndRemoveUntil(
+        (context),
+        MaterialPageRoute(builder: (context) => BaseScreen()),
+        (route) => false);
   }
 }

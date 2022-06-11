@@ -1,4 +1,8 @@
+import 'dart:ffi';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iAttend/business_logic/constants/appconstants.dart';
 import 'package:iAttend/ui/views/dashboard/dashboard.dart';
@@ -9,6 +13,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iAttend/ui/widgets/login/custom_textfield.dart';
 import 'package:keyboard_avoider/keyboard_avoider.dart';
 import 'package:iAttend/ui/views/login/signup.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -17,8 +22,10 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-  TextEditingController _usernameController = new TextEditingController();
-  TextEditingController _passwordController = new TextEditingController();
+  final _usernameController = new TextEditingController();
+  final _passwordController = new TextEditingController();
+
+  final _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -113,6 +120,20 @@ class _LoginPageState extends State<LoginPage> {
                         cursorColor: fontColor,
                         labelColor: Colors.blueGrey,
                         labelText: "Username",
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return ("Please Enter Your Email");
+                          }
+                          // reg for email validation
+                          if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[a-z]")
+                              .hasMatch(value)) {
+                            return ("Please Enter a valid email");
+                          }
+                          return null;
+                        },
+                        onSaved: (value) {
+                          _usernameController.text = value!;
+                        },
                       ),
 
                       Container(
@@ -120,11 +141,24 @@ class _LoginPageState extends State<LoginPage> {
                           vertical: 20,
                         ),
                         child: CustomTextField(
+                          onSaved: (value) {
+                            _passwordController.text = value!;
+                          },
                           color: Color(0xffd3d3d3),
                           controller: _passwordController,
                           cursorColor: fontColor,
                           labelColor: Colors.blueGrey,
                           labelText: "Password",
+                          validator: (value) {
+                            RegExp regex = new RegExp(r'^.{6,}$');
+                            if (value!.isEmpty) {
+                              return ("Password required");
+                            }
+                            if (!regex.hasMatch(value)) {
+                              return ("Enter Valid Password(Min. 6 Character");
+                            }
+                            return null;
+                          },
                         ),
                       ),
 
@@ -174,20 +208,16 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           elevation: 3.0,
                           onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              // _signIn(
-                              //     _usernameController
-                              //         .text,
-                              //     _passwordController
-                              //         .text);
-
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => BaseScreen(),
-                                ),
-                              );
-                            }
+                            signIn(_usernameController.text,
+                                _passwordController.text);
+                            // if (_formKey.currentState!.validate()) {
+                            //   Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //       builder: (context) => BaseScreen(),
+                            //     ),
+                            //   );
+                            // }
                           },
                         ),
                       )
@@ -200,5 +230,22 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  void signIn(String email, String password) async {
+    if (_formKey.currentState!.validate()) {
+      await _auth
+          .signInWithEmailAndPassword(email: email, password: password)
+          .then((uid) => {
+                Fluttertoast.showToast(msg: "Login Successful"),
+                Navigator.of(context).pushReplacement(
+                  MaterialWithModalsPageRoute(
+                      builder: (context) => BaseScreen()),
+                ),
+              })
+          .catchError((e) {
+        Fluttertoast.showToast(msg: e!.message);
+      });
+    }
   }
 }

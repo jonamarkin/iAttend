@@ -6,15 +6,19 @@ class CustomTextField extends StatefulWidget {
   final Color labelColor;
   final Color cursorColor;
   final TextEditingController controller;
+  final validator;
+  final onSaved;
 
-  const CustomTextField(
-      {Key? key,
-      required this.labelText,
-      required this.color,
-      required this.labelColor,
-      required this.controller,
-      required this.cursorColor})
-      : super(key: key);
+  const CustomTextField({
+    Key? key,
+    required this.labelText,
+    required this.color,
+    required this.labelColor,
+    required this.controller,
+    required this.cursorColor,
+    required this.validator,
+    required this.onSaved,
+  }) : super(key: key);
   @override
   _CustomTextFieldState createState() => _CustomTextFieldState();
 }
@@ -38,6 +42,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
           horizontal: 10,
         ),
         child: TextFormField(
+          validator: widget.validator,
+          onSaved: widget.onSaved,
           controller: widget.controller,
           cursorColor: widget.cursorColor,
           decoration: InputDecoration(
