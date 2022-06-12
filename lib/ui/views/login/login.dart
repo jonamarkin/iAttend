@@ -6,6 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iAttend/business_logic/constants/appconstants.dart';
 import 'package:iAttend/ui/views/dashboard/dashboard.dart';
+import 'package:iAttend/ui/views/login/resetpassword.dart';
 import 'package:iAttend/ui/widgets/base.dart';
 import 'package:iAttend/ui/widgets/login/arc.dart';
 import 'package:beauty_textfield/beauty_textfield.dart';
@@ -177,12 +178,22 @@ class _LoginPageState extends State<LoginPage> {
                             FontAwesomeIcons.arrowAltCircleRight,
                             size: 15,
                           ),
-                          Text(
-                            " Reset",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Colors.blueGrey,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ResetPassword(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              " Reset",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                                color: Colors.blueGrey,
+                              ),
                             ),
                           ),
                         ],

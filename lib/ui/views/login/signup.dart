@@ -305,7 +305,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                 _passwordController.text);
                           },
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
