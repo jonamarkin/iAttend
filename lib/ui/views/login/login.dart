@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iAttend/business_logic/constants/appconstants.dart';
 import 'package:iAttend/ui/views/dashboard/dashboard.dart';
@@ -22,10 +23,22 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController _usernameController = new TextEditingController();
   TextEditingController _passwordController = new TextEditingController();
 
+  bool isLoading = false;
+
   signIn() async {
+    setState(() {
+      isLoading = true;
+    });
+
     try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: "emailAddress", password: "password");
+      print("isLoading = " + isLoading.toString());
+      Future.delayed(Duration(milliseconds: 5000), () async {
+        // Do something
+        final credential = await FirebaseAuth.instance
+            .signInWithEmailAndPassword(
+                email: _usernameController.text,
+                password: _passwordController.text);
+      });
     } on FirebaseAuthException catch (e) {
       print(e);
       if (e.code == 'user-not-found') {
@@ -33,7 +46,17 @@ class _LoginPageState extends State<LoginPage> {
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided for that user.');
       }
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
     }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
   }
 
   @override
@@ -172,43 +195,52 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.05,
                       ),
-                      Container(
-                        width: double.maxFinite,
-                        height: MediaQuery.of(context).size.height * 0.07,
-                        child: RaisedButton(
-                          color: Color(0xff8acac0),
-                          child: Text(
-                            'LOGIN',
-                            style: TextStyle(
-                              color: fontColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(5.0),
-                          ),
-                          elevation: 3.0,
-                          onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              // _signIn(
-                              //     _usernameController
-                              //         .text,
-                              //     _passwordController
-                              //         .text);
+                      SpinKitRotatingCircle(
+                        color: Colors.blue,
+                        size: 50.0,
+                      ),
+                      isLoading
+                          ? SpinKitRotatingCircle(
+                              color: Colors.blue,
+                              size: 50.0,
+                            )
+                          : Container(
+                              width: double.maxFinite,
+                              height: MediaQuery.of(context).size.height * 0.07,
+                              child: RaisedButton(
+                                color: Color(0xff8acac0),
+                                child: Text(
+                                  'LOGIN',
+                                  style: TextStyle(
+                                    color: fontColor,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(5.0),
+                                ),
+                                elevation: 3.0,
+                                onPressed: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    // _signIn(
+                                    //     _usernameController
+                                    //         .text,
+                                    //     _passwordController
+                                    //         .text);
 
-                              signIn();
+                                    signIn();
 
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (context) => BaseScreen(),
-                              //   ),
-                              // );
-                            }
-                          },
-                        ),
-                      )
+                                    // Navigator.push(
+                                    //   context,
+                                    //   MaterialPageRoute(
+                                    //     builder: (context) => BaseScreen(),
+                                    //   ),
+                                    // );
+                                  }
+                                },
+                              ),
+                            )
                     ],
                   ),
                 ),
