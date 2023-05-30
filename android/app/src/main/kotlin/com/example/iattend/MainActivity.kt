@@ -1,4 +1,4 @@
-package com.example.iAttend
+package com.example.iattend
 
 import io.flutter.embedding.android.FlutterActivity
 

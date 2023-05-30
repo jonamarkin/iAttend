@@ -1,31 +1,44 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
-import 'package:iAttend/business_logic/constants/appconstants.dart';
-import 'package:iAttend/ui/views/login/login.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:firebase_core/firebase_core.dart';
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(MyApp());
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:iattend/ui/auth/login.dart';
+
+void main() async {
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      systemNavigationBarColor: Colors.black,
+      statusBarBrightness: Brightness.light,
+    ),
+  );
+  await GetStorage.init();
+  runApp(
+     const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'iAttend',
-      theme: ThemeData(
-        //cardColor: Colors.whit,
-        primarySwatch: backColor,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        textTheme: GoogleFonts.latoTextTheme(
-          Theme.of(context).textTheme,
-        ),
-      ),
-      home: LoginPage(),
+      // darkTheme: Themes().darkTheme.copyWith(
+      //       textTheme: GoogleFonts.poppinsTextTheme(
+      //         ThemeData(brightness: Brightness.dark).textTheme,
+      //       ),
+      //     ),
+      // theme: Themes().lightTheme.copyWith(
+      //       textTheme: GoogleFonts.poppinsTextTheme(
+      //         ThemeData(brightness: Brightness.light).textTheme,
+      //       ),
+      //     ),
+
+      // themeMode: ThemeServices().getThemeMode(),
+      home: Login(),
+      // ),
     );
   }
 }
