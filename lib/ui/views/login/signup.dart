@@ -10,7 +10,6 @@ import 'package:iAttend/ui/views/login/login.dart';
 import 'package:iAttend/ui/widgets/base.dart';
 import 'package:iAttend/ui/widgets/login/arc.dart';
 import 'package:iAttend/ui/widgets/login/custom_textfield.dart';
-import 'package:keyboard_avoider/keyboard_avoider.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -42,8 +41,8 @@ class _SignUpPageState extends State<SignUpPage> {
           padding: const EdgeInsets.symmetric(
             horizontal: 12,
           ),
-          child: KeyboardAvoider(
-            autoScroll: true,
+          child: SingleChildScrollView(
+            // autoScroll: true,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

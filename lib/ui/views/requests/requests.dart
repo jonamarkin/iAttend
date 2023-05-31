@@ -50,7 +50,7 @@ class _RequestsState extends State<Requests> {
                 Text(
                   "Send Request",
                   style: GoogleFonts.lato(
-                    textStyle: Theme.of(context).textTheme.headline3,
+                    textStyle: Theme.of(context).textTheme.displaySmall,
                     fontSize: 15,
                     color: Colors.blueGrey,
                     fontWeight: FontWeight.bold,
@@ -67,7 +67,7 @@ class _RequestsState extends State<Requests> {
         title: Text(
           "Requests",
           style: GoogleFonts.lato(
-            textStyle: Theme.of(context).textTheme.headline2,
+            textStyle: Theme.of(context).textTheme.displayMedium,
             fontSize: 22,
             color: Colors.blueGrey,
             fontWeight: FontWeight.bold,

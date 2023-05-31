@@ -59,7 +59,7 @@ class _TeamsCardState extends State<TeamsCard> {
                 Text(
                   widget.teamName,
                   style: GoogleFonts.lato(
-                    textStyle: Theme.of(context).textTheme.headline3,
+                    textStyle: Theme.of(context).textTheme.displaySmall,
                     fontSize: 25,
                     color: Colors.blueGrey,
                     fontWeight: FontWeight.bold,
@@ -72,7 +72,7 @@ class _TeamsCardState extends State<TeamsCard> {
                 Text(
                   widget.teamMembers,
                   style: GoogleFonts.lato(
-                    textStyle: Theme.of(context).textTheme.headline3,
+                    textStyle: Theme.of(context).textTheme.displaySmall,
                     fontSize: 16,
                     color: fontColor,
                     fontWeight: FontWeight.bold,

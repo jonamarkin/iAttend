@@ -18,7 +18,8 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: '>=3.0.2 <4.0.0'
+
 
 dependencies:
   flutter:
@@ -26,24 +27,26 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons:
-  google_fonts:
-  beauty_textfield:
-  font_awesome_flutter:
-  keyboard_avoider:
-  google_nav_bar:
-  line_icons:
-  fl_chart:
-  charts_flutter:
-  modal_bottom_sheet:
-  expansion_card:
-  flutter_launcher_icons:
-  url_launcher:
-  cloud_firestore: 
-  firebase_core: 
-  firebase_auth:
-  firebase_storage: 
-  fluttertoast:  
+  cupertino_icons: 1.0.5
+  google_fonts: 
+
+  font_awesome_flutter: 10.4.0
+
+  google_nav_bar: 5.0.6
+  line_icons: 2.0.1
+  fl_chart: 0.62.0
+  charts_flutter: 0.12.0
+  modal_bottom_sheet: 2.1.2
+
+  flutter_launcher_icons: 0.13.1
+  url_launcher: 6.1.11
+  cloud_firestore: 4.8.0
+  firebase_core: 2.13.1
+  firebase_auth: 4.6.2
+  firebase_storage: 11.2.2
+  fluttertoast:  8.2.2
+  expansion_tile_card: ^3.0.0
+ 
 
 flutter_icons:
   image_path: "assets/images/default.png"

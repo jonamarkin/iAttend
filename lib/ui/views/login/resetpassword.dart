@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:iAttend/business_logic/constants/appconstants.dart';
 import 'package:iAttend/ui/widgets/login/custom_textfield.dart';
-import 'package:keyboard_avoider/keyboard_avoider.dart';
+
 
 class ResetPassword extends StatefulWidget {
   @override
@@ -31,8 +31,8 @@ class _ResetPasswordState extends State<ResetPassword> {
             padding: const EdgeInsets.symmetric(
               horizontal: 12,
             ),
-            child: KeyboardAvoider(
-              autoScroll: true,
+            child: SingleChildScrollView(
+              // autoScroll: true,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iAttend/business_logic/constants/appconstants.dart';
-import 'package:iAttend/ui/widgets/base.dart';
 import 'package:iAttend/ui/widgets/events/event_card.dart';
-import 'package:line_icons/line_icons.dart';
-import 'package:expansion_card/expansion_card.dart';
+
 
 class EventsPage extends StatefulWidget {
   @override
@@ -30,7 +28,7 @@ class _EventsPageState extends State<EventsPage> {
               Text(
                 "Events",
                 style: GoogleFonts.lato(
-                  textStyle: Theme.of(context).textTheme.headline2,
+                  textStyle: Theme.of(context).textTheme.displayMedium,
                   fontSize: 36,
                   color: fontColor,
                   fontWeight: FontWeight.bold,
@@ -53,7 +51,7 @@ class _EventsPageState extends State<EventsPage> {
                 Text(
                   "Upcoming Events",
                   style: GoogleFonts.lato(
-                    textStyle: Theme.of(context).textTheme.headline6,
+                    textStyle: Theme.of(context).textTheme.titleLarge,
                     fontSize: 18,
                     color: fontColor,
                     //fontWeight: FontWeight.bold,

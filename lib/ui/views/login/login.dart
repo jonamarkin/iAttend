@@ -9,10 +9,10 @@ import 'package:iAttend/ui/views/dashboard/dashboard.dart';
 import 'package:iAttend/ui/views/login/resetpassword.dart';
 import 'package:iAttend/ui/widgets/base.dart';
 import 'package:iAttend/ui/widgets/login/arc.dart';
-import 'package:beauty_textfield/beauty_textfield.dart';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iAttend/ui/widgets/login/custom_textfield.dart';
-import 'package:keyboard_avoider/keyboard_avoider.dart';
+
 import 'package:iAttend/ui/views/login/signup.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
@@ -43,8 +43,8 @@ class _LoginPageState extends State<LoginPage> {
           padding: const EdgeInsets.symmetric(
             horizontal: 12,
           ),
-          child: KeyboardAvoider(
-            autoScroll: true,
+          child: SingleChildScrollView(
+            // autoScroll: true,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

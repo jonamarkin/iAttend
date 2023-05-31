@@ -49,7 +49,7 @@ class _EventsCardState extends State<EventsCard> {
                     Text(
                       widget.name,
                       style: GoogleFonts.lato(
-                        textStyle: Theme.of(context).textTheme.headline3,
+                        textStyle: Theme.of(context).textTheme.displaySmall,
                         fontSize: 22,
                         color: Colors.blueGrey,
                         fontWeight: FontWeight.bold,
@@ -61,7 +61,7 @@ class _EventsCardState extends State<EventsCard> {
                 Text(
                   widget.date,
                   style: GoogleFonts.lato(
-                    textStyle: Theme.of(context).textTheme.headline3,
+                    textStyle: Theme.of(context).textTheme.displaySmall,
                     fontSize: 20,
                     color: Colors.blueGrey,
                     //fontWeight: FontWeight.bold,
@@ -91,7 +91,7 @@ class _EventsCardState extends State<EventsCard> {
                           Text(
                             widget.time,
                             style: GoogleFonts.lato(
-                              textStyle: Theme.of(context).textTheme.headline3,
+                              textStyle: Theme.of(context).textTheme.displaySmall,
                               fontSize: 18,
                               color: Colors.blueGrey,
                               //fontWeight: FontWeight.bold,
@@ -120,7 +120,7 @@ class _EventsCardState extends State<EventsCard> {
                           Text(
                             widget.location,
                             style: GoogleFonts.lato(
-                              textStyle: Theme.of(context).textTheme.headline3,
+                              textStyle: Theme.of(context).textTheme.displaySmall,
                               fontSize: 18,
                               color: Colors.blueGrey,
                               //fontWeight: FontWeight.bold,
@@ -144,7 +144,7 @@ class _EventsCardState extends State<EventsCard> {
                 Text(
                   "CLOCK IN",
                   style: GoogleFonts.lato(
-                    textStyle: Theme.of(context).textTheme.headline3,
+                    textStyle: Theme.of(context).textTheme.displaySmall,
                     fontSize: 18,
                     color: fontColor,
                     fontWeight: FontWeight.bold,

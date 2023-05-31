@@ -32,7 +32,7 @@ class _MemberCardState extends State<MemberCard> {
                 child: Text(
                   widget.initials,
                   style: GoogleFonts.lato(
-                    textStyle: Theme.of(context).textTheme.headline3,
+                    textStyle: Theme.of(context).textTheme.displaySmall,
                     fontSize: 18,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -50,7 +50,7 @@ class _MemberCardState extends State<MemberCard> {
                   Text(
                     widget.memberName,
                     style: GoogleFonts.lato(
-                      textStyle: Theme.of(context).textTheme.headline3,
+                      textStyle: Theme.of(context).textTheme.displaySmall,
                       fontSize: 18,
                       color: Colors.blueGrey,
                       fontWeight: FontWeight.bold,
@@ -60,7 +60,7 @@ class _MemberCardState extends State<MemberCard> {
                   Text(
                     widget.memberPosition,
                     style: GoogleFonts.lato(
-                      textStyle: Theme.of(context).textTheme.headline3,
+                      textStyle: Theme.of(context).textTheme.displaySmall,
                       fontSize: 14,
                       color: Colors.blueGrey,
                       //fontWeight: FontWeight.bold,

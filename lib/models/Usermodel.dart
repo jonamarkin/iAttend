@@ -1,6 +1,5 @@
 import 'dart:ffi';
 
-import 'package:iAttend/ui/views/teams/teams.dart';
 
 class UserModel {
   String? uid;

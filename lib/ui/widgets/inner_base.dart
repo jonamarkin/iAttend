@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:iAttend/business_logic/constants/appconstants.dart';
 import 'package:iAttend/ui/views/attendance/attendance.dart';
 import 'package:iAttend/ui/views/dashboard/dashboard.dart';
@@ -51,7 +49,7 @@ class _InnerPagesState extends State<InnerPages> {
         title: Text(
           widget.title,
           style: GoogleFonts.lato(
-            textStyle: Theme.of(context).textTheme.headline2,
+            textStyle: Theme.of(context).textTheme.displayMedium,
             fontSize: 22,
             color: Colors.blueGrey,
             fontWeight: FontWeight.bold,

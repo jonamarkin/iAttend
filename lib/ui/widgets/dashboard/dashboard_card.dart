@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iAttend/business_logic/constants/appconstants.dart';
-import 'package:iAttend/ui/views/teams/teams.dart';
-import 'package:iAttend/ui/widgets/inner_base.dart';
 import 'package:line_icons/line_icons.dart';
 
 class DashboardCard extends StatefulWidget {
@@ -73,7 +71,7 @@ class _DashboardCardState extends State<DashboardCard> {
                     child: Text(
                       widget.cardName,
                       style: GoogleFonts.lato(
-                        textStyle: Theme.of(context).textTheme.headline3,
+                        textStyle: Theme.of(context).textTheme.displaySmall,
                         fontSize: 20,
                         color: Colors.blueGrey,
                         fontWeight: FontWeight.bold,

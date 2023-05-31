@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iAttend/business_logic/constants/appconstants.dart';
-import 'package:iAttend/ui/widgets/base.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -59,7 +58,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       Text(
                         "Profile",
                         style: GoogleFonts.lato(
-                          textStyle: Theme.of(context).textTheme.headline2,
+                          textStyle: Theme.of(context).textTheme.displayMedium,
                           fontSize: 36,
                           color: fontColor,
                           fontWeight: FontWeight.bold,
@@ -96,7 +95,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   text: TextSpan(
                                     text: 'Jonathan Ato Markin ',
                                     style: GoogleFonts.lato(
-                                      textStyle: Theme.of(context).textTheme.headline2,
+                                      textStyle: Theme.of(context).textTheme.displayMedium,
                                       fontSize: 22,
                                       color: fontColor,
                                       fontWeight: FontWeight.bold,
@@ -107,7 +106,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         text: '\nTenor Part Leader',
                                         style: GoogleFonts.lato(
                                           textStyle:
-                                              Theme.of(context).textTheme.headline2,
+                                              Theme.of(context).textTheme.displayMedium,
                                           fontSize: 15,
                                           color: Colors.blueGrey,
                                           fontWeight: FontWeight.bold,
@@ -147,7 +146,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 child: Text(
                                   "+233 547 362 101",
                                   style: GoogleFonts.lato(
-                                    textStyle: Theme.of(context).textTheme.headline2,
+                                    textStyle: Theme.of(context).textTheme.displayMedium,
                                     fontSize: 15,
                                     color: Colors.blueGrey,
                                     fontWeight: FontWeight.bold,
@@ -185,7 +184,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 child: Text(
                                   "jona10711@gmail.com",
                                   style: GoogleFonts.lato(
-                                    textStyle: Theme.of(context).textTheme.headline2,
+                                    textStyle: Theme.of(context).textTheme.displayMedium,
                                     fontSize: 15,
                                     color: Colors.blueGrey,
                                     fontWeight: FontWeight.bold,
@@ -212,7 +211,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 Text(
                                   "500",
                                   style: GoogleFonts.lato(
-                                    textStyle: Theme.of(context).textTheme.headline2,
+                                    textStyle: Theme.of(context).textTheme.displayMedium,
                                     fontSize: 18,
                                     color: fontColor,
                                     fontWeight: FontWeight.bold,
@@ -222,7 +221,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 Text(
                                   "Present",
                                   style: GoogleFonts.lato(
-                                    textStyle: Theme.of(context).textTheme.headline2,
+                                    textStyle: Theme.of(context).textTheme.displayMedium,
                                     fontSize: 15,
                                     color: Colors.blueGrey,
                                     fontWeight: FontWeight.bold,
@@ -240,7 +239,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 Text(
                                   "210",
                                   style: GoogleFonts.lato(
-                                    textStyle: Theme.of(context).textTheme.headline2,
+                                    textStyle: Theme.of(context).textTheme.displayMedium,
                                     fontSize: 18,
                                     color: fontColor,
                                     fontWeight: FontWeight.bold,
@@ -250,7 +249,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 Text(
                                   "Absent",
                                   style: GoogleFonts.lato(
-                                    textStyle: Theme.of(context).textTheme.headline2,
+                                    textStyle: Theme.of(context).textTheme.displayMedium,
                                     fontSize: 15,
                                     color: Colors.blueGrey,
                                     fontWeight: FontWeight.bold,
@@ -284,7 +283,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             title: Text(
                               "Personal Details",
                               style: GoogleFonts.lato(
-                                textStyle: Theme.of(context).textTheme.headline2,
+                                textStyle: Theme.of(context).textTheme.displayMedium,
                                 fontSize: 18,
                                 color: fontColor,
                                 fontWeight: FontWeight.w500,
@@ -311,7 +310,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             title: Text(
                               "FAQ",
                               style: GoogleFonts.lato(
-                                textStyle: Theme.of(context).textTheme.headline2,
+                                textStyle: Theme.of(context).textTheme.displayMedium,
                                 fontSize: 18,
                                 color: fontColor,
                                 fontWeight: FontWeight.w500,
@@ -338,7 +337,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             title: Text(
                               "Tell a Friend",
                               style: GoogleFonts.lato(
-                                textStyle: Theme.of(context).textTheme.headline2,
+                                textStyle: Theme.of(context).textTheme.displayMedium,
                                 fontSize: 18,
                                 color: fontColor,
                                 fontWeight: FontWeight.w500,
@@ -365,7 +364,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             title: Text(
                               "Activate Touch / Face ID",
                               style: GoogleFonts.lato(
-                                textStyle: Theme.of(context).textTheme.caption,
+                                textStyle: Theme.of(context).textTheme.bodySmall,
                                 fontSize: 18,
                                 color: fontColor,
                                 fontWeight: FontWeight.w500,
@@ -404,7 +403,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             title: Text(
                               "Log Out",
                               style: GoogleFonts.lato(
-                                textStyle: Theme.of(context).textTheme.headline2,
+                                textStyle: Theme.of(context).textTheme.displayMedium,
                                 fontSize: 20,
                                 color: Colors.red[400],
                                 fontWeight: FontWeight.bold,

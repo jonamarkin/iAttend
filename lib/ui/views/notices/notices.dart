@@ -1,4 +1,4 @@
-import 'package:expansion_card/expansion_card.dart';
+import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -111,9 +111,9 @@ class _NoticesState extends State<Notices> {
         ),
         child: ListView(
           children: [
-            ExpansionCard(
-              borderRadius: 20,
-              margin: EdgeInsets.all(0),
+            ExpansionTileCard(
+              borderRadius: BorderRadius.circular(5),
+              // margin: EdgeInsets.all(0),
               trailing: Icon(
                 Icons.arrow_drop_down_circle_outlined,
                 color: Colors.black45,
@@ -137,7 +137,7 @@ class _NoticesState extends State<Notices> {
                   ],
                 )
               ],
-              backgroundColor: Colors.white,
+              baseColor: Colors.white,
               leading: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),

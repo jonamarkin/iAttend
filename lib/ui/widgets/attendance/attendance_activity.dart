@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:iAttend/business_logic/constants/appconstants.dart';
 
 class AttendanceActivity extends StatefulWidget {
   final int attendanceStatus;
@@ -59,7 +58,7 @@ class _AttendanceActivityState extends State<AttendanceActivity> {
                                     ? 'R'
                                     : '',
                         style: GoogleFonts.lato(
-                          textStyle: Theme.of(context).textTheme.headline3,
+                          textStyle: Theme.of(context).textTheme.displaySmall,
                           fontSize: 18,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -77,7 +76,7 @@ class _AttendanceActivityState extends State<AttendanceActivity> {
                       Text(
                         widget.eventName,
                         style: GoogleFonts.lato(
-                          textStyle: Theme.of(context).textTheme.headline3,
+                          textStyle: Theme.of(context).textTheme.displaySmall,
                           fontSize: 18,
                           color: Colors.blueGrey, // fontColor,
                           fontWeight: FontWeight.bold,
@@ -87,7 +86,7 @@ class _AttendanceActivityState extends State<AttendanceActivity> {
                       Text(
                         widget.eventLocation,
                         style: GoogleFonts.lato(
-                          textStyle: Theme.of(context).textTheme.headline3,
+                          textStyle: Theme.of(context).textTheme.displaySmall,
                           fontSize: 15,
                           color: Colors.blueGrey,
                           //fontWeight: FontWeight.bold,
@@ -114,7 +113,7 @@ class _AttendanceActivityState extends State<AttendanceActivity> {
                         child: Text(
                           widget.eventDate,
                           style: GoogleFonts.lato(
-                            textStyle: Theme.of(context).textTheme.headline3,
+                            textStyle: Theme.of(context).textTheme.displaySmall,
                             fontSize: 15,
                             color: Colors.grey[400],
                             //fontWeight: FontWeight.bold,

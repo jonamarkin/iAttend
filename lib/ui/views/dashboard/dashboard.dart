@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iAttend/business_logic/constants/appconstants.dart';
 import 'package:iAttend/ui/views/members/members.dart';
 import 'package:iAttend/ui/views/notices/notices.dart';
 import 'package:iAttend/ui/views/requests/requests.dart';
 import 'package:iAttend/ui/views/teams/teams.dart';
-import 'package:iAttend/ui/widgets/base.dart';
 import 'package:iAttend/ui/widgets/dashboard/dashboard_card.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -36,7 +34,7 @@ class _DashboardState extends State<Dashboard> {
                   Text(
                     "Welcome",
                     style: GoogleFonts.lato(
-                      textStyle: Theme.of(context).textTheme.headline2,
+                      textStyle: Theme.of(context).textTheme.displayMedium,
                       fontSize: 36,
                       color: fontColor,
                       fontWeight: FontWeight.bold,
@@ -52,7 +50,7 @@ class _DashboardState extends State<Dashboard> {
               Text(
                 "Jonathan Ato Markin",
                 style: GoogleFonts.lato(
-                  textStyle: Theme.of(context).textTheme.headline3,
+                  textStyle: Theme.of(context).textTheme.displaySmall,
                   fontSize: 18,
                   color: fontColor,
                   //fontWeight: FontWeight.bold,
@@ -73,7 +71,7 @@ class _DashboardState extends State<Dashboard> {
                     Text(
                       "  Administrator",
                       style: GoogleFonts.lato(
-                        textStyle: Theme.of(context).textTheme.headline3,
+                        textStyle: Theme.of(context).textTheme.displaySmall,
                         fontSize: 15,
                         color: Colors.blueGrey,
                         //fontWeight: FontWeight.bold,
@@ -137,7 +135,7 @@ class _DashboardState extends State<Dashboard> {
                   child: Text(
                     "Upcoming Event",
                     style: GoogleFonts.lato(
-                      textStyle: Theme.of(context).textTheme.headline3,
+                      textStyle: Theme.of(context).textTheme.displaySmall,
                       fontSize: 15,
                       color: Colors.blueGrey,
                       fontWeight: FontWeight.bold,
@@ -215,7 +213,7 @@ class _DashboardState extends State<Dashboard> {
                                 "Friday Night Rehearsal",
                                 style: GoogleFonts.lato(
                                   textStyle:
-                                      Theme.of(context).textTheme.headline3,
+                                      Theme.of(context).textTheme.displaySmall,
                                   fontSize: 23,
                                   color: fontColor,
                                   fontWeight: FontWeight.bold,
@@ -237,7 +235,7 @@ class _DashboardState extends State<Dashboard> {
                                     "Christian Home School",
                                     style: GoogleFonts.lato(
                                       textStyle:
-                                          Theme.of(context).textTheme.headline3,
+                                          Theme.of(context).textTheme.displaySmall,
                                       fontSize: 18,
                                       color: Colors.blueGrey,
                                       //fontWeight: FontWeight.bold,
@@ -261,7 +259,7 @@ class _DashboardState extends State<Dashboard> {
                                     "18:00 - 20:30",
                                     style: GoogleFonts.lato(
                                       textStyle:
-                                          Theme.of(context).textTheme.headline3,
+                                          Theme.of(context).textTheme.displaySmall,
                                       fontSize: 18,
                                       color: Colors.blueGrey,
                                       //fontWeight: FontWeight.bold,
