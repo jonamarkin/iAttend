@@ -239,7 +239,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           },
                           validator: (value) {
                             if (_repeatPasswordController.text !=
-                                _passwordController.text ) {
+                                _passwordController.text) {
                               return "Password don't match";
                             }
                             return null;
@@ -286,8 +286,14 @@ class _SignUpPageState extends State<SignUpPage> {
                       Container(
                         width: double.maxFinite,
                         height: MediaQuery.of(context).size.height * 0.07,
-                        child: RaisedButton(
-                          color: Color(0xff8acac0),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xff8acac0),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(5.0),
+                            ),
+                            elevation: 3.0,
+                          ),
                           child: Text(
                             'SIGN UP',
                             style: TextStyle(
@@ -296,10 +302,6 @@ class _SignUpPageState extends State<SignUpPage> {
                               fontSize: 16,
                             ),
                           ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(5.0),
-                          ),
-                          elevation: 3.0,
                           onPressed: () {
                             signUp(_emailController.text,
                                 _passwordController.text);

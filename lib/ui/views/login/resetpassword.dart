@@ -69,8 +69,15 @@ class _ResetPasswordState extends State<ResetPassword> {
                       Container(
                         width: double.maxFinite,
                         height: MediaQuery.of(context).size.height * 0.07,
-                        child: RaisedButton(
-                          color: Color(0xff8acac0),
+                        child: ElevatedButton(
+                           style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xff8acac0),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(5.0),
+                            ),
+                            elevation: 3.0,
+                          ),
+                         
                           child: Text(
                             'Submit',
                             style: TextStyle(
@@ -79,10 +86,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                               fontSize: 16,
                             ),
                           ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(5.0),
-                          ),
-                          elevation: 3.0,
+                       
                           onPressed: () {
                             resetPassword(_emailController.text.trim());
                           },

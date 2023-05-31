@@ -204,8 +204,14 @@ class _LoginPageState extends State<LoginPage> {
                       Container(
                         width: double.maxFinite,
                         height: MediaQuery.of(context).size.height * 0.07,
-                        child: RaisedButton(
-                          color: Color(0xff8acac0),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xff8acac0),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(5.0),
+                            ),
+                            elevation: 3.0,
+                          ),
                           child: Text(
                             'LOGIN',
                             style: TextStyle(
@@ -214,10 +220,6 @@ class _LoginPageState extends State<LoginPage> {
                               fontSize: 16,
                             ),
                           ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(5.0),
-                          ),
-                          elevation: 3.0,
                           onPressed: () {
                             signIn(_usernameController.text,
                                 _passwordController.text);
